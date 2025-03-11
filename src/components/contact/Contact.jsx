@@ -2,6 +2,6 @@ import "./contact.css";
 
 export default function Contact() {
   return (
-    <div>Contact</div>
+    <div className="contact">Contact</div>
   )
 }

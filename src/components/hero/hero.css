@@ -1,0 +1,67 @@
+.hero {
+  height: auto;
+  min-height: 95vh;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  /* background-color: blue; */
+}
+
+.hSection {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.hSection.left {
+  margin-top: 10rem;
+  gap: 1rem;
+}
+
+.hTitle span {
+  color: var(--main-color-1);
+}
+
+.hImage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: red; */ /* Je retire le fond rouge pour mieux voir */
+}
+
+/* Ajout des styles pour l'image elle-même */
+.hImage img {
+  width: 80%; /* Réduit de 100% à 80% */
+  height: 80%; /* Réduit de 100% à 80% */
+  object-fit: contain; /* ou 'cover' selon vos besoins */
+}
+
+/* LEFT SECTION */
+.hButtons {
+  display: flex;
+  gap: 1rem;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hSection.left {
+    margin-top: 0;
+    width: 100%;
+    margin-bottom: var(--margin-bottom);
+  }
+
+  .hImage {
+    align-items: flex-start;
+  }
+}

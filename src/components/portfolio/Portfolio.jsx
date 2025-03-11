@@ -2,6 +2,6 @@ import "./portfolio.css";
 
 export default function Portfolio() {
   return (
-    <div>Portfolio</div>
+    <div className="portfolio">Portfolio</div>
   )
 }
