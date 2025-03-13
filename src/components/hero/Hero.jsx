@@ -2,6 +2,10 @@ import "./hero.css";
 import heroImage from "../../../public/portrait.png";
 import Header from "../header/Header";
 import { motion } from "framer-motion";
+import { Canvas } from "@react-three/fiber";
+import { Suspense } from "react";
+import Shape from "./Shape";
+
 export default function Hero() {
   return (
     <>
@@ -34,7 +38,14 @@ export default function Hero() {
         </div>
 
         <div className="hSection right">
-          {/* IMAGE SECTION */}
+          <div className="canvas-container">
+            <Canvas>
+              <Suspense fallback="loading...">
+                <Shape />
+              </Suspense>
+            </Canvas>
+          </div>
+
           <div className="hImage">
             <motion.img
               initial={{ opacity: 0, y: 100 }}
