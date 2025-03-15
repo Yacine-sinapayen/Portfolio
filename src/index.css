@@ -105,8 +105,8 @@ a:hover {
 
 section {
   height: 100vh;
-  scroll-snap-align: center;
 }
+
 
 section:nth-child(2) {
   background-color: green;
