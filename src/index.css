@@ -107,20 +107,6 @@ section {
   height: 100vh;
 }
 
-
-section:nth-child(2) {
-  background-color: green;
-}
-
-section:nth-child(3) {
-  background-color: yellow;
-}
-
-section:nth-child(4) {
-  background-color: purple;
-}
-
-
 @media (min-width: 640px) {
   .container {
     max-width: 640px;

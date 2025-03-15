@@ -1,5 +1,5 @@
 import Hero from "./components/hero/Hero";
-import Services from "./components/services/Services";
+import Expertise from "./components/expertise/Expertise";
 import Portfolio from "./components/portfolio/Portfolio";
 import Contact from "./components/contact/Contact";
 
@@ -9,8 +9,8 @@ const App = () => {
       <section id="#home">
         <Hero />
       </section>
-      <section id="#services">
-        <Services />
+      <section id="#expertise">
+        <Expertise />
       </section>
       <section id="#portfolio">
         <Portfolio />
