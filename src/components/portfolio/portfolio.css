@@ -1,6 +1,103 @@
 .portfolio {
-  height: 100%;
-  background-color: #5e1ce1;
-  padding: 20px;
+  height: 600vh;
+  position: relative;
 }
 
+.pList {
+  position: sticky;
+  top: 0;
+  display: flex;
+  height: 100vh;
+  width: max-content;
+}
+
+.emptySpace {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.emptySpace h1 {
+  font-size: 100px;
+}
+
+.pItem {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: center;
+  gap: 100px;
+}
+
+.pProgress {
+  position: sticky;
+  width: 80px;
+  height: 80px;
+  left: 0;
+  bottom: 80%;
+}
+
+.pImg {
+  width: 40%;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.pImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pText {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.pText h1 {
+  font-size: 56px;
+}
+
+.pText p {
+  font-weight: 300;
+}
+
+@media (max-width: 1536px) {
+  .pItem {
+    gap: 50px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .pText h1 {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .pItem {
+    flex-direction: column;
+  }
+
+  .pImg,
+  .pText {
+    width: 80%;
+  }
+
+  .pProgress {
+    bottom: 100px;
+    left: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .pProgress {
+    width: 50px;
+    height: 50px;
+  }
+}
