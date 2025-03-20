@@ -15,10 +15,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .emptySpace h1 {
-  font-size: 100px;
+  font-size: 150px;
+  font-weight: 200;
+}
+
+.arrow-icon {
+  color: #339dff;
+  width: 300px;
+  height: 300px;
 }
 
 .pItem {
@@ -101,3 +109,12 @@
     height: 50px;
   }
 }
+
+
+
+
+
+
+
+
+

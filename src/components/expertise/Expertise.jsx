@@ -1,29 +1,49 @@
 import "./expertise.css";
 import Card from "../common/card/Cards";
 import { FaReact, FaCode, FaDatabase } from "react-icons/fa";
+import { TbBrandNextjs } from "react-icons/tb";
+import { SiTypescript } from "react-icons/si";
+import { RiTailwindCssFill } from "react-icons/ri";
+
 import { motion } from "framer-motion";
 
 const Expertise = () => {
   const expertiseData = [
     {
       icon: <FaReact />,
-      title: "Développement Frontend",
+      title: "React",
       description:
-        "Création d'interfaces utilisateur modernes et réactives avec React et TypeScript",
-      tags: ["React", "TypeScript", "Tailwind CSS"],
+        "Développement d'interfaces utilisateur rapides et interactives, optimisées pour la performance et l'expérience utilisateur.",
+    },
+    {
+      icon: <TbBrandNextjs />,
+      title: "Next.js",
+      description:
+        "Création d'applications web performantes avec SSR, SSG et optimisations SEO pour une meilleure visibilité.",
+    },
+    {
+      icon: <SiTypescript />,
+      title: "TypeScript",
+      description:
+        "Écriture d’un code robuste et évolutif avec TypeScript, réduisant les bugs et améliorant la maintenabilité.",
+    },
+    {
+      icon: <RiTailwindCssFill />,
+      title: "Tailwind CSS",
+      description:
+        "Développement d'interfaces modernes et responsives rapidement grâce à Tailwind CSS.",
     },
     {
       icon: <FaCode />,
       title: "Clean Code",
       description:
-        "Développement de code maintenable et évolutif suivant les meilleures pratiques",
-      tags: ["SOLID", "DRY", "Testing"],
+        "Respect des meilleures pratiques pour un code maintenable, lisible et facilement scalable.",
     },
     {
       icon: <FaDatabase />,
       title: "Architecture",
-      description: "Conception d'architectures scalables et performantes",
-      tags: ["REST API", "State Management", "Performance"],
+      description:
+        "Conception d'architectures front-end optimisées pour la scalabilité et la fluidité des applications.",
     },
   ];
 
@@ -32,24 +52,24 @@ const Expertise = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
-      }
-    }
+        staggerChildren: 0.2,
+      },
+    },
   };
 
   const cardVariants = {
-    hidden: { 
+    hidden: {
       opacity: 0,
-      y: 50
+      y: 50,
     },
-    visible: { 
+    visible: {
       opacity: 1,
       y: 0,
       transition: {
         duration: 1,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   return (
@@ -60,9 +80,9 @@ const Expertise = () => {
         transition={{ duration: 1, ease: "easeOut" }}
         viewport={{ amount: 0.3 }}
       >
-        Mon Expertise
+        Expertise
       </motion.h2>
-      <motion.div 
+      <motion.div
         className="cards-container"
         variants={containerVariants}
         initial="hidden"

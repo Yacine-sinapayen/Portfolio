@@ -124,7 +124,6 @@ export default function Portfolio() {
   }, []);
 
   const { scrollYProgress } = useScroll({ target: ref });
-  console.log("🚀 ~ Portfolio ~ scrollYProgress:", scrollYProgress)
 
   const xTranslate = useTransform(
     scrollYProgress,
@@ -139,10 +138,43 @@ export default function Portfolio() {
           className="emptySpace"
           style={{
             width: window.innerWidth - containerDistance,
-            backgroundColor: "blue",
           }}
         >
-          <motion.h1 variants={textVariants}>POrtfolio</motion.h1>
+          <motion.div
+            className="title-container"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            viewport={{ amount: 0.3 }}
+          >
+            <h1>Projets</h1>
+            {/* Custom Arrow Icon */}
+            <svg 
+              width="260" 
+              height="24" 
+              viewBox="0 0 300 24"
+              style={{ overflow: 'visible' }}
+            >
+              <motion.line 
+                x1="0" 
+                y1="12" 
+                x2="280" 
+                y2="12" 
+                stroke="currentColor" 
+                strokeWidth="2"
+                initial={{ pathLength: 0 }}
+                whileInView={{ pathLength: 1 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+              />
+              <motion.path 
+                d="M290 12 L280 6 L280 18 Z" 
+                fill="currentColor"
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+              />
+            </svg>
+          </motion.div>
         </motion.div>
 
         {items.map((item) => (
