@@ -1,6 +1,7 @@
 import emailjs from "@emailjs/browser";
 import { useRef, useState } from "react";
 import "./contact.css";
+import Logo from "../../../public/logo-transparent.png";
 
 
 export default function Contact() {
@@ -56,7 +57,9 @@ const [error, setError] = useState(false);
           {error && <p>Erreur lors de l'envoi du message</p>}
         </form>
       </div>
-      <div className="cSection">svg</div>
+      <div className="cSection">
+        <img src={Logo} alt="Logo" />
+      </div>
     </div>
   );
 }

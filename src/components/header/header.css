@@ -6,6 +6,18 @@
   min-height: 5vh;
   font-size: 1rem;
   margin-bottom: var(--margin-bottom);
+  margin-top: var(--margin-top);
+}
+
+.header__title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header__title img {
+  width: 40px;
+  height: 40px;
 }
 
 .header__nav-list {

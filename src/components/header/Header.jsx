@@ -2,7 +2,7 @@ import "./header.css";
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import { SiMalt } from 'react-icons/si';
 import { useState } from 'react';
-
+import Logo from "../../../public/logo-transparent.png";
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -13,6 +13,7 @@ export default function Header() {
   return (
     <div className="header">
       <div className="header__title">
+        <img src={Logo} alt="Logo" />
         <h3>Yacine Sinapayen</h3>
       </div>
 

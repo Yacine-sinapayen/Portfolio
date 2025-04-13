@@ -114,6 +114,9 @@ const ListItem = ({ item }) => {
 export default function Portfolio() {
   const [containerDistance, setContainerDistance] = useState(0);
   const ref = useRef(null);
+   const mainColor2 = getComputedStyle(document.documentElement).getPropertyValue(
+    "--main-color-2"
+  );
 
   // calculate teh space between our window and the container
   useEffect(() => {
@@ -202,7 +205,7 @@ export default function Portfolio() {
             cy="80"
             r="70"
             fill="none"
-            stroke="#339dff"
+            stroke={mainColor2}
             strokeWidth={20}
             style={{ pathLength: scrollYProgress }}
             transform="rotate(-90, 80, 80)"

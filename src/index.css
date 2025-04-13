@@ -13,8 +13,11 @@
   /* Main color */
   --bleu-electric: #007bff;
 
-  /* Hover effect */
-  --bleu-clair: #339dff;
+  /* Main color light */
+  --bleu-electric-light: #4080e6;
+
+  /* Hover effect btn */
+  --bleu-clair: #6b9de3;
 
   /* Text, Title, background color dark */
   --bleu-nuit: #1b2143;
@@ -23,12 +26,16 @@
   --bleu-pastel: #a7c7e7;
 
   --main-color-1: var(--bleu-electric);
-  --main-color-2: var(--bleu-clair);
+  --main-color-2: var(--bleu-electric-light);
+
   --text-color-primary: var(--bleu-nuit);
-  --text-color-secondary: var(--bleu-canard);
+  --text-color-secondary: var(--bleu-clair);
   --card-bg: var(--bleu-pastel);
 
   --margin-bottom: 2rem;
+  --margin-top: 1rem;
+
+  --scale-effect: 1.01;
 }
 
 body {
@@ -54,7 +61,7 @@ button {
   background-image: linear-gradient(
     45deg,
     var(--main-color-1) 0%,
-    var(--main-color-2) 51%,
+    var(--bleu-clair) 51%,
     var(--main-color-1) 100%
   );
   transition: all 0.5s ease;
@@ -62,7 +69,7 @@ button {
 
 .button-primary:hover {
   background-position: 100% 0;
-  transform: scale(1.01);
+  transform: scale(var(--scale-effect));
 }
 
 .button-secondary {
@@ -71,10 +78,11 @@ button {
   position: relative;
   border: 1px solid var(--main-color-1);
 }
+
 .button-secondary:hover {
-  color: var(--main-color-2);
-  border: 1px solid var(--main-color-2);
-  transform: scale(1.01);
+  color: var(--bleu-clair);
+  border: 1px solid var(--bleu-clair);
+  transform: scale(var(--scale-effect));
 }
 
 h1 {
@@ -94,10 +102,13 @@ h3 {
 
 a {
   text-decoration: none;
-  color: var(--color-primary);
+  color: var(--text-color-primary);
+  transition: all 0.5s ease;
 }
+
 a:hover {
   color: var(--text-color-secondary);
+  transform: scale(var(--scale-effect));
 }
 
 .container {

@@ -12,11 +12,14 @@
 }
 
 .hSection.left {
-  gap: 1rem;
+  gap: 3rem;
+  justify-content: start;
+  height: 100%;
+  display: flex;
 }
 
 .hTitle span {
-  color: var(--main-color-1);
+  color: var(--main-color-2);
 }
 
 /* RIGHT SECTION */
