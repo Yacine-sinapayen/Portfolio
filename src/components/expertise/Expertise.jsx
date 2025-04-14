@@ -4,7 +4,7 @@ import { FaReact, FaCode, FaDatabase } from "react-icons/fa";
 import { TbBrandNextjs } from "react-icons/tb";
 import { SiTypescript } from "react-icons/si";
 import { RiTailwindCssFill } from "react-icons/ri";
-
+import useMediaQuery from "../../hooks/useMediaQuery";
 import { motion } from "framer-motion";
 
 const Expertise = () => {
@@ -60,24 +60,27 @@ const Expertise = () => {
   const cardVariants = {
     hidden: {
       opacity: 0,
-      y: 50,
+      x: 50,
     },
     visible: {
       opacity: 1,
-      y: 0,
+      x: 0,
       transition: {
-        duration: 1,
+        duration: 0.3,
         ease: "easeOut",
       },
     },
   };
+
+  const isDesktop = useMediaQuery("(min-width: 768px)");
+  console.log("isDesktop", isDesktop);
 
   return (
     <div className="expertise">
       <motion.h2
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
+        transition={{ duration: 0.2, ease: "easeOut" }}
         viewport={{ amount: 0.3 }}
       >
         Expertise
@@ -90,7 +93,10 @@ const Expertise = () => {
         viewport={{ amount: 0.3 }}
       >
         {expertiseData.map((item, index) => (
-          <motion.div key={index} variants={cardVariants}>
+          <motion.div
+            key={index}
+            variants={isDesktop ? cardVariants : {}}
+          >
             <Card
               icon={item.icon}
               title={item.title}
