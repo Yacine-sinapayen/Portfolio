@@ -23,21 +23,26 @@ export default function Header() {
         <div className={`burger-bar ${isMenuOpen ? 'open' : ''}`}></div>
       </div>
 
-      <div className={`header__nav ${isMenuOpen ? 'open' : ''}`}>
-        <nav className="header__nav-list">
-          <a href="/">Expertise</a>
+      {/* <div className={`header__nav ${isMenuOpen ? 'open' : ''}`}> */}
+        {/* Menu de navigation principal */}
+        {/* <nav className="header__nav-list"> */}
+          {/* Liens de navigation vers les différentes sections du site */}
+          {/* <a href="/">Expertise</a>
           <a href="/">Projets</a>
           <a href="/">Méthodologie</a>
-          <a href="/">Services</a>
-          {/* redirect to form contact */}
-          <a href="/">Travaillons ensemble</a>
-          {/* à mettre en place quand il y aura un calendly */}
+          <a href="/">Services</a> */}
+          
+          {/* Section commentée - Fonctionnalités à implémenter */}
+          {/* Lien vers le formulaire de contact */}
+          {/* <a href="/">Travaillons ensemble</a> */}
+          
+          {/* Lien pour la prise de rendez-vous - En attente de l'intégration Calendly */}
           {/* <a href="/">Réserver un appel</a> */}
-        </nav>
-      </div>
+        {/* </nav>
+      </div> */}
 
       {/* FOLLOW SECTION*/}
-      <div className={`header__follow ${isMenuOpen ? 'open' : ''}`}>
+      {/* <div className={`header__follow ${isMenuOpen ? 'open' : ''}`}>
         <a href="https://www.linkedin.com/in/yacine-sinapayen/" target="_blank" aria-label="LinkedIn">
           <FaLinkedin size={24} />
         </a>
@@ -47,7 +52,7 @@ export default function Header() {
         <a href="" target="_blank" aria-label="Malt">
           <SiMalt size={24} />
         </a>
-      </div>
+      </div> */}
     </div>
   );
 }

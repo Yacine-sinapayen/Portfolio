@@ -22,7 +22,7 @@ export default function Hero() {
             <span> React TypeScript</span>
           </motion.h1>
           <p className="hDescription">
-            Je développe des interfaces web performantes et évolutives, offrant
+            Je développe des interfaces web performantes, scalables et évolutives, offrant
             une expérience utilisateur intuitive et optimale, avec React,
             Tailwind et des tests automatisés.
           </p>

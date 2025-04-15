@@ -119,10 +119,6 @@ a:hover {
   margin-right: auto;
 }
 
-section {
-  height: 100vh;
-}
-
 @media (min-width: 640px) {
   .container {
     max-width: 640px;
@@ -132,6 +128,10 @@ section {
 @media (min-width: 768px) {
   .container {
     max-width: 768px;
+  }
+
+  section {
+    height: 90vh;
   }
 }
 

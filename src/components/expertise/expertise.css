@@ -3,6 +3,7 @@
   flex-direction: column;
   gap: 2rem;
   padding: 20px;
+  background-color: blue;
 }
 
 .cards-container {
