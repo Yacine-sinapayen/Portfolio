@@ -1,10 +1,13 @@
 import PropTypes from "prop-types";
+import "./cards.css";
 
 const Card = ({ icon, title, description, tags }) => {
   return (
     <div className="card">
-      <div className="card__icon">{icon}</div>
-      <h3 className="card__title">{title}</h3>
+      <div className="card__header">
+        <div className="card__icon">{icon}</div>
+        <h3 className="card__title">{title}</h3>
+      </div>
       <p className="card__description">{description}</p>
       {tags && (
         <div className="card__tags">
