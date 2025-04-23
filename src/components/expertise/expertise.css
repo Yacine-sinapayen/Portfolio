@@ -1,9 +1,9 @@
 .expertise {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   gap: 2rem;
   padding: 20px;
-
 }
 
 .cards-container {

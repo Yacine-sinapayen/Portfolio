@@ -64,12 +64,14 @@
 }
 
 /* MEDIA QUERIES */
+
 @media (max-width: 768px) {
   .hero {
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 2rem;
+
   }
 
   .hSection.left {

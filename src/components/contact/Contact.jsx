@@ -29,15 +29,14 @@ export default function Contact() {
   };
 
   return (
-    <div className="contact">
-      <motion.h1
-        initial={{ opacity: 0, x: 100 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.2, ease: "easeOut" }}
-        viewport={{ amount: 0.3 }}
-      >
-        Contactez moi
-      </motion.h1>
+    <motion.div 
+      className="contact"
+      initial={{ opacity: 0, x: 100 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.2, ease: "easeOut" }}
+      viewport={{ amount: 0.3 }}
+    >
+      <h1>Contactez moi</h1>
       <form ref={form} onSubmit={sendEmail} action="">
         <div className="formItem">
           <label htmlFor="">Nom</label>
@@ -61,6 +60,6 @@ export default function Contact() {
         {success && <p>Message envoyé avec succès</p>}
         {error && <p>Erreur lors de l'envoi du message</p>}
       </form>
-    </div>
+    </motion.div>
   );
 }

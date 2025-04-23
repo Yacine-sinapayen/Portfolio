@@ -9,6 +9,7 @@
 :root {
   --hue-1: 213;
   --bg-color: #f8f9fa;
+  --bg-color-alt: #f0f2f5;
 
   /* Main color */
   --bleu-electric: #007bff;
@@ -132,7 +133,7 @@ a:hover {
   }
 
   section {
-    height: 90vh;
+    min-height: 100vh;
   }
 }
 
