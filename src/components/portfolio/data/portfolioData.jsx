@@ -1,0 +1,43 @@
+export const portfolioData = [
+  {
+    id: 1,
+    img: "/p1.jpg",
+    title: "Full Stack Blog Application",
+    desc: "Lorem ipsum, dolo.",
+    link: "https://votre-demo.com",
+    github: "https://github.com/votre-compte/projet",
+    tags: ["React", "Node.js", "MongoDB"],
+  },
+  {
+    id: 2,
+    img: "/p2.jpg",
+    title: "School Management System",
+    desc: "Lorem ipsum, dolor.",
+    link: "/",
+    tags: ["React", "Node.js", "MongoDB"],
+  },
+  {
+    id: 3,
+    img: "/p3.jpg",
+    title: "Real-time Chat Application",
+    desc: "Lorem ipsum, dolor sit amet.",
+    link: "/",
+    tags: ["React", "Node.js", "MongoDB"],
+  },
+  {
+    id: 4,
+    img: "/p4.jpg",
+    title: "Social Media Project",
+    desc: "Lorem ipsum, dolor sit.",
+    link: "/",
+    tags: ["Tailwind CSS", "Framer Motion"],
+  },
+  {
+    id: 5,
+    img: "/p5.jpg",
+    title: "Animated Portfolio Website",
+    desc: "Lorem ipsum.",
+    link: "/",
+    tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
+  },
+];

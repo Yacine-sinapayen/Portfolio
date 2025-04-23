@@ -1,12 +1,11 @@
 import emailjs from "@emailjs/browser";
 import { useRef, useState } from "react";
 import "./contact.css";
-import Logo from "../../../public/logo-transparent.png";
-
+import { motion } from "framer-motion";
 
 export default function Contact() {
-const [success, setSuccess] = useState(false);
-const [error, setError] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
 
   const form = useRef();
 
@@ -31,35 +30,37 @@ const [error, setError] = useState(false);
 
   return (
     <div className="contact">
-      <div className="cSection">
-        <form ref={form} onSubmit={sendEmail} action="">
-          <h1 className="cTitle">Contactez moi</h1>
-          <div className="formItem">
-            <label htmlFor="">Nom</label>
-            <input name="user_name" type="text" placeholder="Joe Doe" />
-          </div>
-          <div className="formItem">
-            <label htmlFor="">Email</label>
-            <input name="user_email" type="text" placeholder="john@gmail.com" />
-          </div>
-          <div className="formItem">
-            <label htmlFor="">Message</label>
-            <textarea
-              name="user_message"
-              rows="10"
-              placeholder="Écrivez votre message ici"
-            ></textarea>
-          </div>
-          <button className="button-primary button-primary:hover">
-            Envoyer
-          </button>
-          {success && <p>Message envoyé avec succès</p>}
-          {error && <p>Erreur lors de l'envoi du message</p>}
-        </form>
-      </div>
-      <div className="cSection">
-        <img src={Logo} alt="Logo" />
-      </div>
+      <motion.h1
+        initial={{ opacity: 0, x: 100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.2, ease: "easeOut" }}
+        viewport={{ amount: 0.3 }}
+      >
+        Contactez moi
+      </motion.h1>
+      <form ref={form} onSubmit={sendEmail} action="">
+        <div className="formItem">
+          <label htmlFor="">Nom</label>
+          <input name="user_name" type="text" placeholder="Joe Doe" />
+        </div>
+        <div className="formItem">
+          <label htmlFor="">Email</label>
+          <input name="user_email" type="text" placeholder="john@gmail.com" />
+        </div>
+        <div className="formItem">
+          <label htmlFor="">Message</label>
+          <textarea
+            name="user_message"
+            rows="10"
+            placeholder="Écrivez votre message ici"
+          ></textarea>
+        </div>
+        <button className="button-primary button-primary:hover">
+          Envoyer
+        </button>
+        {success && <p>Message envoyé avec succès</p>}
+        {error && <p>Erreur lors de l'envoi du message</p>}
+      </form>
     </div>
   );
 }

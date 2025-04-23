@@ -1,26 +1,19 @@
 .contact {
-  height: 100%;
   display: flex;
-  gap: 100px;
-}
-
-.cSection {
-  width: 50%;
-  height: 100%;
+  flex-direction: column;
+  gap: 2rem;
   padding: 20px;
-  display: flex;
   align-items: center;
-  justify-content: center;
 }
 
-.cSection img {
+h1 {
+  text-align: center;
   width: 100%;
-  height: 75%;
-  object-fit: cover;
 }
 
 form {
-  width: 80%;
+  width: 100%;
+  max-width: 600px;
   display: flex;
   flex-direction: column;
   gap: 20px;

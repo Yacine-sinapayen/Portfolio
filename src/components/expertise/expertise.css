@@ -3,6 +3,7 @@
   flex-direction: column;
   gap: 2rem;
   padding: 20px;
+
 }
 
 .cards-container {
@@ -15,4 +16,9 @@
   .cards-container {
     grid-template-columns: 1fr;
   }
+}
+
+h1 {
+  text-align: center;
+  width: 100%;
 }

@@ -30,6 +30,7 @@
 
   --text-color-primary: var(--bleu-nuit);
   --text-color-secondary: var(--bleu-clair);
+  --text-color-tertiary: #6c757d;
   --card-bg: var(--bleu-pastel);
 
   --margin-bottom: 2rem;
@@ -92,12 +93,12 @@ h1 {
 
 h2 {
   font-size: 1.5rem;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 h3 {
   font-size: 1rem;
-  font-weight: 200;
+  font-weight: 400;
 }
 
 a {

@@ -4,7 +4,6 @@ import { FaReact, FaCode, FaDatabase } from "react-icons/fa";
 import { TbBrandNextjs } from "react-icons/tb";
 import { SiTypescript } from "react-icons/si";
 import { RiTailwindCssFill } from "react-icons/ri";
-import useMediaQuery from "../../hooks/useMediaQuery";
 import { motion } from "framer-motion";
 
 const Expertise = () => {
@@ -25,7 +24,7 @@ const Expertise = () => {
       icon: <SiTypescript />,
       title: "TypeScript",
       description:
-        "Écriture d’un code robuste et évolutif avec TypeScript, réduisant les bugs et améliorant la maintenabilité.",
+        "Écriture d'un code robuste et évolutif avec TypeScript, réduisant les bugs et améliorant la maintenabilité.",
     },
     {
       icon: <RiTailwindCssFill />,
@@ -47,20 +46,10 @@ const Expertise = () => {
     },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
   const cardVariants = {
     hidden: {
       opacity: 0,
-      x: 50,
+      x: 100,
     },
     visible: {
       opacity: 1,
@@ -72,29 +61,25 @@ const Expertise = () => {
     },
   };
 
-  const isDesktop = useMediaQuery("(min-width: 768px)");
 
   return (
     <div className="expertise">
-      <motion.h2
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
+      <motion.h1
+        initial={{ opacity: 0, x: 100 }}
+        whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.2, ease: "easeOut" }}
         viewport={{ amount: 0.3 }}
       >
         Expertise
-      </motion.h2>
-      <motion.div
-        className="cards-container"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ amount: 0.3 }}
-      >
+      </motion.h1>
+      <div className="cards-container">
         {expertiseData.map((item, index) => (
           <motion.div
             key={index}
-            variants={isDesktop ? cardVariants : {}}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ amount: 0.3 }}
+            variants={cardVariants}
           >
             <Card
               icon={item.icon}
@@ -104,7 +89,7 @@ const Expertise = () => {
             />
           </motion.div>
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 };
