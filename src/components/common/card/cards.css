@@ -96,8 +96,23 @@
   transition: opacity 0.3s ease;
 }
 
-.card:hover .card__image-overlay {
-  opacity: 1;
+/* Sur desktop : affichage au hover */
+@media (hover: hover) {
+  .card:hover .card__image-overlay {
+    opacity: 1;
+  }
+}
+
+/* Sur mobile : affichage permanent avec opacité réduite */
+@media (hover: none) {
+  .card__image-overlay {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.3);
+  }
+  
+  .card__overlay-icon {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
 }
 
 .card__overlay-icon {
