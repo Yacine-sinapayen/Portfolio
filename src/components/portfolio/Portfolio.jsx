@@ -22,14 +22,14 @@ export default function Portfolio() {
 
   return (
     <div className="portfolio" id="portfolio">
-      <motion.h1
+      <motion.h2
         initial={{ opacity: 0, x: 100 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.2, ease: "easeOut" }}
         viewport={{ amount: 0.3 }}
       >
         Portfolio
-      </motion.h1>
+      </motion.h2>
       <div className="portfolio-container">
         {portfolioData.map((project) => (
           <motion.div

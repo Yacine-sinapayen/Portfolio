@@ -36,7 +36,7 @@ export default function Contact() {
       transition={{ duration: 0.2, ease: "easeOut" }}
       viewport={{ amount: 0.3 }}
     >
-      <h1>Contactez moi</h1>
+      <h2>Contactez moi</h2>
       <form ref={form} onSubmit={sendEmail} action="">
         <div className="formItem">
           <label htmlFor="">Nom</label>
