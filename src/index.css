@@ -89,7 +89,7 @@ button {
 
 h1 {
   font-size: 2.5rem;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 h2 {
@@ -132,14 +132,22 @@ a:hover {
     max-width: 768px;
   }
 
-  section {
-    min-height: 100vh;
-  }
+}
+
+/* Sauf sur la première section, appliqué padding 4rem 0 */
+section:not(:first-of-type) {
+  padding: 4rem 0;
 }
 
 @media (min-width: 1024px) {
   .container {
     max-width: 1024px;
+  }
+
+  /* La première section garde son style spécifique */
+  section:first-of-type {
+    min-height: 100vh;
+    padding: 0;
   }
 }
 
@@ -154,3 +162,4 @@ a:hover {
     max-width: 1536px;
   }
 }
+
