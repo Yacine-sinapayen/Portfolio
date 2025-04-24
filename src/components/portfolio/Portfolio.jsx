@@ -21,7 +21,7 @@ export default function Portfolio() {
   };
 
   return (
-    <div className="portfolio">
+    <div className="portfolio" id="portfolio">
       <motion.h1
         initial={{ opacity: 0, x: 100 }}
         whileInView={{ opacity: 1, x: 0 }}

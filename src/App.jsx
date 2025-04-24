@@ -6,15 +6,15 @@ import Contact from "./components/contact/Contact";
 const App = () => {
   return (
     <div className="container">
-      <section id="#home">
+      <section id="home">
         <Hero />
       </section>
-      <section id="#expertise">
+      <section id="expertise">
         <Expertise />
       </section>
       {/* No section for portfolio to handle the effect scrolling. Because if we add a section, the effect scrolling will not work with conatct section */}
       <Portfolio />
-      <section id="#contact">
+      <section id="contact">
         <Contact />
       </section>
     </div>

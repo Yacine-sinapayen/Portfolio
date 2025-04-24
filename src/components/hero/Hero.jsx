@@ -7,6 +7,12 @@ import { Suspense } from "react";
 import Shape from "./Shape";
 
 export default function Hero() {
+  const scrollTo = (sectionId) => (e) => {
+    e.preventDefault();
+    const targetSection = document.querySelector(`#${sectionId}`);
+    targetSection.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <>
       <Header />
@@ -22,16 +28,22 @@ export default function Hero() {
             <span> React TypeScript</span>
           </motion.h1>
           <p className="hDescription">
-            Je développe des interfaces web performantes, scalables et évolutives, offrant
-            une expérience utilisateur intuitive et optimale, avec React,
-            Tailwind et des tests automatisés.
+            Je développe des interfaces web performantes, scalables et
+            évolutives, offrant une expérience utilisateur intuitive et
+            optimale, avec React, Tailwind et des tests automatisés.
           </p>
 
           <div className="hButtons">
-            <button className="button-primary button-primary:hover">
+            <button
+              onClick={scrollTo("contact")}
+              className="button-primary button-primary:hover"
+            >
               Travaillons ensemble !
             </button>
-            <button className="button-secondary button-secondary:hover">
+            <button 
+              onClick={scrollTo("portfolio")}
+              className="button-secondary button-secondary:hover"
+            >
               Découvrir mes projets
             </button>
           </div>
