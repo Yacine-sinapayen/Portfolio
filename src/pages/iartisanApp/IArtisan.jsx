@@ -200,6 +200,9 @@ export default function IArtisan() {
 
   return (
     <div className="iartisan">
+      <div className="iartisan__branding iartisan__branding--top">
+        IArtisan by Webysta agence
+      </div>
       <HeroTest2 onOpenPopup={() => setShowPopup(true)} />
       <ValueSectionPunchy onOpenPopup={() => setShowPopup(true)} />
       <ProblemSection />
@@ -215,6 +218,9 @@ export default function IArtisan() {
       <ProcessSection onOpenPopup={() => setShowPopup(true)} />
       <FaqSection />
       <FinalCTA onOpenPopup={() => setShowPopup(true)} />
+      <div className="iartisan__branding iartisan__branding--bottom">
+        IArtisan by Webysta agence
+      </div>
       {showPopup && (
         <div className="iartisan__popup-overlay" onClick={() => setShowPopup(false)}>
           <div className="iartisan__popup-content" onClick={(e) => e.stopPropagation()}>

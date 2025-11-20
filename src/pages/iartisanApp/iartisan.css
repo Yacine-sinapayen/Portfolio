@@ -7,6 +7,44 @@
   font-family: "Montserrat", "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
+
+.iartisan__branding {
+  font-size: 0.75rem;
+  text-align: center;
+  padding: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: #6b9de3;
+}
+
+.iartisan__branding--top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  padding-top: 1.5rem;
+}
+
+.iartisan__branding--bottom {
+  padding: 2rem 1rem;
+  margin-top: 0;
+}
+
+@media (min-width: 768px) {
+  .iartisan__branding {
+    font-size: 0.8125rem;
+  }
+  
+  .iartisan__branding--top {
+    padding-top: 2rem;
+  }
+  
+  .iartisan__branding--bottom {
+    padding: 3rem 1rem;
+  }
 }
 
 /* Hero Section with Webysta Background */
@@ -101,7 +139,7 @@
 
 .iartisan__hero-title {
   font-size: 3rem;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.1;
   color: #ffffff;
   margin: 0 0 2rem 0;
