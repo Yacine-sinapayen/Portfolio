@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 import IArtisan from "./pages/iartisanApp/IArtisan";
-import Webysta from "./pages/webystaAgence/Webysta";
 
 
 const App = () => {
