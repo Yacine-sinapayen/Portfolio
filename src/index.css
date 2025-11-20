@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:wght@300;400;500;600;700;800&display=swap");
 
 * {
   margin: 0;
@@ -43,7 +43,7 @@
 body {
   background: linear-gradient(to bottom, var(--bg-color), var(--bg-color));
   color: var(--text-color-primary);
-  font-family: "Poppins", sans-serif;
+  font-family: "Montserrat", "Poppins", sans-serif;
   min-height: 100vh;
   overflow-x: hidden;
   max-width: 100%;
@@ -140,10 +140,6 @@ a:hover {
 
 }
 
-/* Sauf sur la première section, appliqué padding 4rem 0 */
-section:not(:first-of-type) {
-  padding: 4rem 0;
-}
 
 @media (min-width: 1024px) {
   .container {
@@ -152,7 +148,6 @@ section:not(:first-of-type) {
 
   /* La première section garde son style spécifique */
   section:first-of-type {
-    min-height: 100vh;
     padding: 0;
   }
 }
@@ -168,4 +163,3 @@ section:not(:first-of-type) {
     max-width: 1536px;
   }
 }
-
