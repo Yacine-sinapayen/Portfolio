@@ -7,7 +7,7 @@ const setupOptions = [
     id: "connexion",
     label: "J'ai déjà un site",
     description: "On connecte IArtisan à votre site existant.",
-    price: 190,
+    price: 0,
   },
   {
     id: "refonte",
@@ -156,6 +156,17 @@ export default function IArtisan() {
   const [selected, setSelected] = useState("connexion");
   const [showPopup, setShowPopup] = useState(false);
   const [calendlyLoading, setCalendlyLoading] = useState(true);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Détecter le scroll pour afficher le header
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 100);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Charger le script Calendly
   useEffect(() => {
@@ -179,17 +190,18 @@ export default function IArtisan() {
 
       document.body.appendChild(script);
 
-      return () => {
+    return () => {
         setCalendlyLoading(true);
       };
-    }
+      }
   }, [showPopup]);
 
   return (
     <div className="iartisan">
-      <div className="iartisan__branding iartisan__branding--top">
-        IArtisan by Webysta agence
-      </div>
+      <Header 
+        isVisible={isScrolled} 
+        onOpenPopup={() => setShowPopup(true)} 
+      />
       <HeroTest2 onOpenPopup={() => setShowPopup(true)} />
       <ValueSectionPunchy onOpenPopup={() => setShowPopup(true)} />
       <BeforeAfterSection />
@@ -202,9 +214,6 @@ export default function IArtisan() {
       <ProcessSection onOpenPopup={() => setShowPopup(true)} />
       <FaqSection />
       <FinalCTA onOpenPopup={() => setShowPopup(true)} />
-      <div className="iartisan__branding iartisan__branding--bottom">
-        IArtisan by Webysta agence
-      </div>
       {showPopup && (
         <div
           className="iartisan__popup-overlay"
@@ -226,7 +235,7 @@ export default function IArtisan() {
                 <p className="iartisan__loading-text">
                   Chargement du calendrier...
                 </p>
-              </div>
+            </div>
             )}
             <div
               className="calendly-inline-widget"
@@ -240,7 +249,7 @@ export default function IArtisan() {
           </div>
         </div>
       )}
-    </div>
+            </div>
   );
 }
 
@@ -294,7 +303,7 @@ function HeroTest2({ onOpenPopup }) {
             Votre savoir-faire mérite d&apos;être vu. 
           </h1>
           <h1 className="iartisan__hero-title">
-            iArtisan gère vos publications en un clic.
+            iArtisan gère votre communication en un clic.
           </h1>
           <p className="iartisan__hero-subtitle">
             Vous travaillez dur, IArtisan le démontre et vous génère{" "}
@@ -304,7 +313,7 @@ function HeroTest2({ onOpenPopup }) {
             <CTAButton onOpenPopup={onOpenPopup} />
           </div>
         </div>
-      </div>
+        </div>
     </header>
   );
 }
@@ -352,11 +361,11 @@ function ValueSectionPunchy({ onOpenPopup }) {
             />
           </div>
         ))}
-      </div>
+            </div>
       <div className="iartisan__value-punchy-cta">
         <CTAButton onOpenPopup={onOpenPopup} />
-      </div>
-    </section>
+        </div>
+      </section>
   );
 }
 
@@ -385,11 +394,11 @@ function HowItWorks() {
                 className="iartisan__step-text" 
                 dangerouslySetInnerHTML={{ __html: step.description }}
               />
-            </div>
+              </div>
           ))}
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
   );
 }
 
@@ -440,13 +449,13 @@ function BeforeAfterSection() {
           </ul>
           <p className="iartisan__before-after-text">* en moyenne</p>
         </div>
-      </div>
+          </div>
     </section>
   );
 }
 
 function PricingSection({ selected, onSelect, onOpenPopup }) {
-  return (
+              return (
     <section className="iartisan__pricing" id="pricing">
       <div className="iartisan__pricing-content">
         <h2 className="iartisan__section-title">
@@ -474,11 +483,11 @@ function PricingSection({ selected, onSelect, onOpenPopup }) {
                 <div className="iartisan__setup-header">
                   <span className="iartisan__setup-label-text">
                     {option.label}
-                  </span>
+                        </span>
                   <span className="iartisan__setup-price">
                     {option.price.toLocaleString("fr-FR")}€
-                  </span>
-                </div>
+                        </span>
+                    </div>
                 <p className="iartisan__setup-description">
                   {option.description}
                 </p>
@@ -501,9 +510,9 @@ function PricingSection({ selected, onSelect, onOpenPopup }) {
 
         <p className="iartisan__pricing-note">
           Sans engagement. Vous arrêtez quand vous voulez.
-        </p>
-      </div>
-    </section>
+          </p>
+        </div>
+      </section>
   );
 }
 
@@ -552,7 +561,7 @@ function PricingCard({
 
 function ProcessSection({ onOpenPopup }) {
   return (
-    <section className="iartisan__process">
+      <section className="iartisan__process">
       <div className="iartisan__process-content">
         <h2 className="iartisan__section-title iartisan__section-title--center">
           Installation simple, résultats rapides
@@ -570,13 +579,13 @@ function ProcessSection({ onOpenPopup }) {
           <CTAButton onOpenPopup={onOpenPopup} />
         </div>
       </div>
-    </section>
+      </section>
   );
 }
 
 function FaqSection() {
   return (
-    <section className="iartisan__faq">
+      <section className="iartisan__faq">
       <div className="iartisan__faq-content">
         <h2 className="iartisan__section-title iartisan__section-title--center">
           Questions fréquentes
@@ -589,8 +598,8 @@ function FaqSection() {
             </div>
           ))}
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
   );
 }
 
@@ -605,8 +614,24 @@ function FinalCTA({ onOpenPopup }) {
         <div className="iartisan__final-cta-button">
           <CTAButton onOpenPopup={onOpenPopup} />
         </div>
+        </div>
+      </section>
+  );
+}
+
+function Header({ isVisible, onOpenPopup }) {
+  return (
+    <header className={`iartisan__header ${isVisible ? "iartisan__header--visible" : ""}`}>
+      <div className="iartisan__header-content">
+        <div className="iartisan__header-branding">
+          <div className="iartisan__header-branding-main">iArtisan</div>
+          <div className="iartisan__header-branding-sub">by webysta agence</div>
+        </div>
+        <div className="iartisan__header-cta">
+          <CTAButton onOpenPopup={onOpenPopup} />
+        </div>
       </div>
-    </section>
+    </header>
   );
 }
 
