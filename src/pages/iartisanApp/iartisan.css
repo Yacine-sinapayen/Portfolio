@@ -129,7 +129,8 @@
   margin-right: calc(50% - 50vw);
   margin-bottom: 0;
   padding: 0;
-  overflow: hidden;
+  overflow-y: auto;
+  min-height: 100vh;
   max-height: 100vh;
   display: flex;
   align-items: center;
@@ -148,26 +149,27 @@
 .iartisan__hero-content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 5rem 1rem;
+  padding: 3rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
   z-index: 1;
+  width: 100%;
 }
 
 @media (min-width: 768px) {
   .iartisan__hero-content {
     flex-direction: row;
     gap: 4rem;
-    padding: 7rem 2rem;
+    padding: 4rem 2rem;
   }
 }
 
 @media (min-width: 1024px) {
   .iartisan__hero-content {
     gap: 6rem;
-    padding: 9rem 4rem;
+    padding: 5rem 4rem;
   }
 }
 
@@ -192,25 +194,25 @@
   color: #ffffff;
   padding: 0.625rem 1.25rem;
   border-radius: 50px;
-  font-size: 0.75rem;
+  font-size: clamp(0.7rem, 1.5vw, 0.75rem);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   width: fit-content;
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 @media (min-width: 768px) {
   .iartisan__badge {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
 }
 
 @media (min-width: 1024px) {
   .iartisan__badge {
-    margin-bottom: 3.5rem;
+    margin-bottom: 2.5rem;
   }
 }
 
@@ -219,11 +221,11 @@
 }
 
 .iartisan__hero-title {
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 500;
   line-height: 1.2;
   color: #ffffff;
-  margin: 0 0 2.5rem 0;
+  margin: 0 0 2rem 0;
   letter-spacing: -0.02em;
   display: flex;
   flex-direction: column;
@@ -233,8 +235,9 @@
 
 @media (min-width: 768px) {
   .iartisan__hero-title {
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
     line-height: 1.15;
+    font-size: clamp(2.5rem, 6vw, 4rem);
   }
 }
 
@@ -242,57 +245,46 @@
   display: block;
 }
 
-@media (min-width: 768px) {
-  .iartisan__hero-title {
-    font-size: 4.5rem;
-  }
-}
-
 @media (min-width: 1024px) {
   .iartisan__hero-title {
-    font-size: 5.5rem;
+    font-size: clamp(3rem, 7vw, 4.5rem);
   }
 }
 
 .iartisan__hero-subtitle {
-  font-size: 1.125rem;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.9);
-  margin: 0 0 2.5rem 0;
+  margin: 0 0 2rem 0;
   font-weight: 400;
   max-width: 700px;
 }
 
 @media (min-width: 768px) {
   .iartisan__hero-subtitle {
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
     line-height: 1.65;
-  }
-}
-
-@media (min-width: 768px) {
-  .iartisan__hero-subtitle {
-    font-size: 1.25rem;
+    font-size: clamp(1.125rem, 2.5vw, 1.375rem);
   }
 }
 
 @media (min-width: 1024px) {
   .iartisan__hero-subtitle {
-    font-size: 1.5rem;
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
   }
 }
 
 .iartisan__hero-benefit {
-  font-size: 1.125rem;
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.8);
-  margin: 0 0 2.5rem 0;
+  margin: 0 0 2rem 0;
   font-weight: 400;
 }
 
 @media (min-width: 768px) {
   .iartisan__hero-benefit {
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
   }
 }
 
