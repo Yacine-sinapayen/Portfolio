@@ -1,25 +1,38 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import "./iartisan.css";
+import Portfolio from "./Portfolio";
 
 const setupOptions = [
   {
     id: "connexion",
     label: "J'ai déjà un site",
     description: "On connecte IArtisan à votre site existant.",
-    price: 0,
+    prices: {
+      ESSENTIEL: 500,
+      PRO: 249,
+      EXPERT: 150,
+    },
   },
   {
     id: "refonte",
     label: "Je souhaite rafraîchir mon site",
     description: "On le modernise et on le prépare pour IArtisan.",
-    price: 1500,
+    prices: {
+      ESSENTIEL: 1500,
+      PRO: 1119,
+      EXPERT: 899,
+    },
   },
   {
     id: "creation",
     label: "Je souhaite créer un nouveau site",
     description: "On crée un site clé-en-main, prêt pour IArtisan.",
-    price: 2000,
+    prices: {
+      ESSENTIEL: 2000,
+      PRO: 1499,
+      EXPERT: 1199,
+    },
   },
 ];
 
@@ -74,47 +87,51 @@ const pricingPlans = [
   {
     name: "ESSENTIEL",
     price: "99€/mois",
-    tagline: "Pour commencer simplement, sans prise de tête.",
+    tagline: "",
     items: [
-      "5 publications IA / mois",
-      "Publication automatique sur votre site web + 1 réseau social",
-      "Texte optimisé pour le référencement Google",
+      "3 publications générées par IA par mois",
+      "Publication automatique sur votre site web",
+      "Texte optimisé pour le référencement",
+      "1 utilisateur inclus",
       "Support par email",
     ],
     highlight: false,
-    subtitle: "Le kit minimal pour réveiller votre présence en ligne.",
+    subtitle: "",
   },
   {
     name: "PRO",
-    price: "149€/mois",
-    tagline: "Pour les artisans qui veulent vraiment être visibles.",
-    badge: "⭐ Le plus vendu",
+    price: "249€/mois",
+    tagline: "",
+    badge: "",
     highlight: true,
     items: [
-      "Tout le plan Essentiel",
-      "🔥 Publications illimitées",
-      "🔥 2 articles de blog IA (SEO boost massif)",
-      "🔥 Statistiques de performance mensuelles",
-      "🔥 Auto-publication sur vos réseaux sociaux",
-      "🔥 Support prioritaire par email",
+      "Publications illimitées",
+      "Publication automatique sur site, Facebook et Instagram",
+      "2 articles de blog générés par IA par mois",
+      "Statistiques mensuelles",
+      "IA SEO avancée (optimisation du texte, titres, descriptions)",
+      "3 utilisateurs inclus",
+      "Support prioritaire",
     ],
-    subtitle: "Votre communication en pilote automatique. Génération de clients en continu.",
+    subtitle: "",
   },
   {
     name: "EXPERT",
     price: "399€/mois",
-    tagline: "Pour dominer votre marché local.",
+    tagline: "",
     items: [
-      "Tout le plan Pro",
-      "✨ Optimisation référencement sur toutes vos pages web",
-      "✨ Optimisation de votre page Google Business",
-      "✨ Accompagnement mensuel",
-      "✨ Maintenance incluse",
-      "✨ Pages personnalisées",
-      "✨ Stratégie éditoriale IA",
+      "Toutes les fonctionnalités du plan Pro",
+      "Publication sur la page LinkedIn de l'entreprise",
+      "Reporting SEO mensuel (positions Google, trafic, mots-clés)",
+      "Optimisation continue des pages du site",
+      "Optimisation de la fiche Google Business",
+      "10 utilisateurs inclus",
+      "Accompagnement mensuel de 30 minutes",
+      "Maintenance et mises à jour techniques incluses",
+      "Stratégie éditoriale IA personnalisée",
     ],
     highlight: false,
-    subtitle: "Votre présence en ligne… surpuissante.",
+    subtitle: "",
   },
 ];
 
@@ -204,6 +221,7 @@ export default function IArtisan() {
       />
       <HeroTest2 onOpenPopup={() => setShowPopup(true)} />
       <ValueSectionPunchy onOpenPopup={() => setShowPopup(true)} />
+      <Portfolio />
       <BeforeAfterSection />
       <HowItWorks />
       <PricingSection
@@ -454,8 +472,28 @@ function BeforeAfterSection() {
   );
 }
 
+const ENGAGEMENT_SETUP_PRICE = 429;
+
 function PricingSection({ selected, onSelect, onOpenPopup }) {
-              return (
+  const [selectedPlan, setSelectedPlan] = useState(null);
+  const [engagement24, setEngagement24] = useState(false);
+
+  const getPriceForOption = (optionId) => {
+    if (engagement24) {
+      return ENGAGEMENT_SETUP_PRICE;
+    }
+    const option = setupOptions.find(opt => opt.id === optionId);
+    if (option && option.prices) {
+      if (selectedPlan) {
+        return option.prices[selectedPlan] || option.prices.ESSENTIEL;
+      }
+      // Si aucun plan n'est sélectionné, on affiche le prix Essentiel par défaut
+      return option.prices.ESSENTIEL;
+    }
+    return 0;
+  };
+
+  return (
     <section className="iartisan__pricing" id="pricing">
       <div className="iartisan__pricing-content">
         <h2 className="iartisan__section-title">
@@ -483,16 +521,34 @@ function PricingSection({ selected, onSelect, onOpenPopup }) {
                 <div className="iartisan__setup-header">
                   <span className="iartisan__setup-label-text">
                     {option.label}
-                        </span>
+                  </span>
                   <span className="iartisan__setup-price">
-                    {option.price.toLocaleString("fr-FR")}€
-                        </span>
-                    </div>
+                    {getPriceForOption(option.id).toLocaleString("fr-FR")}€
+                  </span>
+                </div>
                 <p className="iartisan__setup-description">
                   {option.description}
                 </p>
+                {engagement24 && (
+                  <div className="iartisan__setup-engagement-info">
+                    <p className="iartisan__setup-engagement-label">Frais de mise en route</p>
+                    <p className="iartisan__setup-engagement-label">Avec engagement de 24 mois</p>
+                  </div>
+                )}
               </button>
             ))}
+          </div>
+          <div className="iartisan__engagement-switch-container">
+            <label className="iartisan__engagement-switch-label">
+              <input
+                type="checkbox"
+                checked={engagement24}
+                onChange={(e) => setEngagement24(e.target.checked)}
+                className="iartisan__engagement-switch-input"
+              />
+              <span className="iartisan__engagement-switch-slider"></span>
+              <span className="iartisan__engagement-switch-text">Engagement 24 mois</span>
+            </label>
           </div>
         </div>
 
@@ -504,13 +560,15 @@ function PricingSection({ selected, onSelect, onOpenPopup }) {
 
         <div className="iartisan__plans-grid">
           {pricingPlans.map((plan) => (
-            <PricingCard key={plan.name} {...plan} onOpenPopup={onOpenPopup} />
+            <PricingCard 
+              key={plan.name} 
+              {...plan} 
+              onOpenPopup={onOpenPopup}
+              onSelect={() => setSelectedPlan(plan.name)}
+              isSelected={selectedPlan === plan.name}
+            />
           ))}
         </div>
-
-        <p className="iartisan__pricing-note">
-          Sans engagement. Vous arrêtez quand vous voulez.
-          </p>
         </div>
       </section>
   );
@@ -525,20 +583,24 @@ function PricingCard({
   badge,
   subtitle,
   onOpenPopup,
+  onSelect,
+  isSelected,
 }) {
   return (
     <div
       className={`iartisan__plan-card ${
         highlight ? "iartisan__plan-card--highlight" : ""
-      }`}
+      } ${isSelected ? "iartisan__plan-card--selected" : ""}`}
+      onClick={onSelect}
+      style={{ cursor: onSelect ? 'pointer' : 'default' }}
     >
       <div className="iartisan__plan-header">
         <h3 className="iartisan__plan-name">{name}</h3>
-        {badge && <span className="iartisan__plan-badge">{badge}</span>}
+        {badge && badge.trim() && <span className="iartisan__plan-badge">{badge}</span>}
       </div>
-      <div className="iartisan__plan-price">{price}</div>
-      <p className="iartisan__plan-tagline">{tagline}</p>
-      {subtitle && <p className="iartisan__plan-subtitle">{subtitle}</p>}
+      <div className="iartisan__plan-price">{price} HT</div>
+      {tagline && tagline.trim() && <p className="iartisan__plan-tagline">{tagline}</p>}
+      {subtitle && subtitle.trim() && <p className="iartisan__plan-subtitle">{subtitle}</p>}
       <ul className="iartisan__plan-items">
         {items.map((item) => (
           <li key={item} className="iartisan__plan-item">

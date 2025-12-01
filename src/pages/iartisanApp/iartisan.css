@@ -1608,11 +1608,69 @@
   }
 }
 
+.iartisan__engagement-switch-container {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iartisan__engagement-switch-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+.iartisan__engagement-switch-input {
+  position: relative;
+  width: 48px;
+  height: 28px;
+  appearance: none;
+  background: #ccc;
+  border-radius: 28px;
+  outline: none;
+  transition: background 0.3s;
+  cursor: pointer;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.iartisan__engagement-switch-input:checked {
+  background: #0071e3;
+}
+
+.iartisan__engagement-switch-slider {
+  position: absolute;
+  left: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.3s;
+  pointer-events: none;
+}
+
+.iartisan__engagement-switch-input:checked ~ .iartisan__engagement-switch-slider {
+  transform: translateY(-50%) translateX(20px);
+}
+
+.iartisan__engagement-switch-text {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #1d1d1f;
+}
+
+
 .iartisan__setup-label {
   font-size: 1rem;
   font-weight: 600;
   color: #1d1d1f;
-  margin: 0 0 2rem 0;
+  margin: 0 0 1rem 0;
   letter-spacing: -0.01em;
 }
 
@@ -1678,8 +1736,22 @@
 .iartisan__setup-description {
   font-size: 0.875rem;
   color: #86868b;
-  margin: 0;
+  margin: 0 0 0.75rem 0;
   line-height: 1.5;
+}
+
+.iartisan__setup-engagement-info {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(12, 28, 63, 0.08);
+  text-align: center;
+}
+
+.iartisan__setup-engagement-label {
+  font-size: 0.8125rem;
+  color: #86868b;
+  margin: 0.25rem 0;
+  line-height: 1.4;
 }
 
 .iartisan__setup-selected {
@@ -1778,6 +1850,12 @@
   border-color: #0071e3;
   background: #ffffff;
   box-shadow: 0 12px 40px rgba(0, 113, 227, 0.2);
+}
+
+.iartisan__plan-card--selected {
+  border-color: #0071e3;
+  box-shadow: 0 12px 40px rgba(0, 113, 227, 0.25);
+  transform: translateY(-2px);
 }
 
 .iartisan__plan-header {
@@ -2287,5 +2365,235 @@
   margin-top: 1.5rem;
   font-size: 1rem;
   color: #4a5674;
+  font-weight: 500;
+}
+
+/* Portfolio Section */
+.iartisan__portfolio {
+  padding: 3rem 1rem;
+  background: #f5f5f7;
+}
+
+@media (min-width: 768px) {
+  .iartisan__portfolio {
+    padding: 5rem 2rem;
+  }
+}
+
+.iartisan__portfolio-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.iartisan__portfolio-loading,
+.iartisan__portfolio-error {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.125rem;
+  color: #86868b;
+}
+
+.iartisan__portfolio-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+@media (min-width: 768px) {
+  .iartisan__portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .iartisan__portfolio-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+.iartisan__publication-card {
+  background: #ffffff;
+  border: 1px solid rgba(12, 28, 63, 0.08);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(20, 36, 73, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.iartisan__publication-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #007bff, #5dade2);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+
+.iartisan__publication-card:hover::before {
+  transform: scaleX(1);
+}
+
+.iartisan__publication-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(20, 36, 73, 0.15);
+  border-color: rgba(0, 123, 255, 0.2);
+}
+
+.iartisan__publication-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .iartisan__publication-image {
+    height: 280px;
+  }
+}
+
+.iartisan__publication-card--no-image .iartisan__publication-card-content {
+  padding-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .iartisan__publication-card--no-image .iartisan__publication-card-content {
+    padding-top: 2.5rem;
+  }
+}
+
+.iartisan__publication-card-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex: 1;
+  min-height: 0;
+}
+
+@media (min-width: 768px) {
+  .iartisan__publication-card-content {
+    padding: 2rem;
+  }
+}
+
+.iartisan__publication-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin: 0 0 0.75rem 0;
+  line-height: 1.4;
+  opacity: 1;
+}
+
+@media (min-width: 768px) {
+  .iartisan__publication-title {
+    font-size: 1.25rem;
+  }
+}
+
+.iartisan__publication-title:only-child {
+  margin-bottom: 0;
+}
+
+.iartisan__publication-location {
+  font-size: 0.9375rem;
+  color: #4a5674;
+  margin: 0 0 0.75rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  opacity: 1;
+  font-weight: 500;
+}
+
+.iartisan__publication-location:last-child:not(:only-child) {
+  margin-bottom: 0;
+}
+
+.iartisan__publication-description-wrapper {
+  margin: 0 0 0.75rem 0;
+  flex: 1;
+}
+
+.iartisan__publication-description {
+  font-size: 1rem;
+  color: #1d1d1f;
+  line-height: 1.7;
+  margin: 0;
+  opacity: 1;
+  font-weight: 400;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all 0.3s ease;
+}
+
+.iartisan__publication-description--expanded {
+  display: block;
+  -webkit-line-clamp: unset;
+  overflow: visible;
+}
+
+.iartisan__publication-description-wrapper:last-child {
+  margin-bottom: 0;
+}
+
+.iartisan__publication-expand-btn {
+  margin-top: 0.75rem;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid #0071e3;
+  color: #0071e3;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.iartisan__publication-expand-btn:hover {
+  background: #0071e3;
+  color: #ffffff;
+}
+
+.iartisan__publication-expand-btn:focus {
+  outline: 2px solid #0071e3;
+  outline-offset: 2px;
+}
+
+.iartisan__publication-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.iartisan__publication-tags:empty {
+  display: none;
+}
+
+.iartisan__publication-tag {
+  font-size: 0.8125rem;
+  color: #0071e3;
+  background: rgba(0, 113, 227, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
   font-weight: 500;
 }
