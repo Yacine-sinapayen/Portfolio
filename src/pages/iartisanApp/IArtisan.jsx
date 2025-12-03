@@ -221,14 +221,16 @@ export default function IArtisan() {
       />
       <HeroTest2 onOpenPopup={() => setShowPopup(true)} />
       <ValueSectionPunchy onOpenPopup={() => setShowPopup(true)} />
-      <Portfolio />
+      {/* Section "Ils utilisent déjà IArtisan" - Affichage des publications des artisans */}
+      {/* <Portfolio /> */}
       <BeforeAfterSection />
       <HowItWorks />
-      <PricingSection
+      {/* Section des tarifs - Formules d'abonnement et options de setup */}
+      {/* <PricingSection
         selected={selected}
         onSelect={setSelected}
         onOpenPopup={() => setShowPopup(true)}
-      />
+      /> */}
       <ProcessSection onOpenPopup={() => setShowPopup(true)} />
       <FaqSection />
       <FinalCTA onOpenPopup={() => setShowPopup(true)} />
